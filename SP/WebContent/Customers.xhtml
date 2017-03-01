@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Customers</title>
+<f:metadata>
+		<f:event listener="#{customerControl.loadCustomer()}"
+			type="preRenderView" />
+	</f:metadata>
+</h:head>
+<h:body>
+ <h:form>
+<br></br>
+	<style type="text/css">
+ .td  { background:#66B3FF; }
+ .td1 { background:#C4E1FF; }
+ .td2 { background:#ECF5FF; }
+</style>
+		<h:dataTable value="#{customerControl.customer}" var="c"
+			 headerClass="td"
+         rowClasses="td1,td2">
+			<h:column>    				
+            <f:facet name="header">city</f:facet>    				
+            #{c.city}
+         </h:column>
+         <h:column>
+            <f:facet name="header">firstname</f:facet>
+            #{c.firstname}
+         </h:column>
+         <h:column>
+            <f:facet name="header">surname</f:facet>
+            #{c.surname}
+         </h:column> 
+              <h:column>
+            <f:facet name="header">phone</f:facet>
+            #{c.phone}
+         </h:column>    
+          <h:column>
+            <f:facet name="header">Action</f:facet>
+            <h:outputLink value="Update.xhtml">Update</h:outputLink><br/>
+            <h:outputLink value="Delete.xhtml">Delete</h:outputLink>
+         </h:column>
+		</h:dataTable>
+		<h:outputLink value="Add.xhtml">Add</h:outputLink>
+	</h:form>
+
+
+</h:body>
+</html>
