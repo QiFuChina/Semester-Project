@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Add Page</title>
+</h:head>
+<h:body>
+
+<h:form>
+<style type="text/css">
+span{padding-right:10px;width:4em;display:block;float:left;line-height:26px;}
+</style>
+
+<b>Add Page</b>
+
+<br></br><br></br>
+<span>City:</span> <h:inputText value="#{customer.city}" style="width:140px"/><br></br>
+<br></br><br></br>
+<span>Firstname:</span> <h:inputText value="#{customer.firstname}" style="width:140px"/><br></br>
+<br></br><br></br>
+<span>Surname:</span> <h:inputText value="#{customer.surname}" style="width:140px"/><br></br>
+<br></br><br></br>
+<span>Phone:</span> <h:inputText value="#{customer.phone}" style="width:140px"/><br></br>
+
+<br></br><br></br>
+<h:commandButton value="Add" action="#{customerControl.addCustomer(customer)}"></h:commandButton>
+<span></span>
+<h:outputLink value="Customers.xhtml">Customers Page</h:outputLink>
+
+</h:form>
+</h:body>
+</html>

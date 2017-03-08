@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<meta charset="UTF-8"></meta>
+<title>add model</title>
+</head>
+<body>
+	<h:form>
+	    <br/>
+		<b>Student Details</b>
+		<br/><br/>
+		
+		Student ID: <h:inputText value="#{student.studentID}" id="studentID" required="true" requiredMessage="ID is mandatory" />
+		<h:message for="studentID" style="color: red"/> 
+		<br/><br/>
+		Name: <h:inputText value="#{student.studentName}" id="studentName" required="true" requiredMessage="Name is mandatory" />
+		<h:message for="studentName" style="color: red"/> 
+		<br/><br/>
+		Course ID: <h:inputText value="#{student.courseID}" id="courseID" required="true" requiredMessage="Course ID is mandatory" />
+		<h:message for="courseID" style="color: red"/> 
+		<br/><br/>
+	
+		<h:commandButton value="Add" action="#{studentControl.addStudents(student)}" ></h:commandButton>
+		<br/><br/>
+		<h:outputLink value="index.xhtml">Home</h:outputLink>
+	</h:form>
+
+</body>
+</html>
