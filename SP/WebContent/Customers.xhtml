@@ -21,6 +21,11 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 		<h:dataTable value="#{customerControl.customer}" var="c"
 			 headerClass="td"
          rowClasses="td1,td2">
+         <h:column>    				
+            <f:facet name="header">Username</f:facet>    				
+            #{c.username}
+         </h:column>
+      
 			<h:column>    				
             <f:facet name="header">city</f:facet>    				
             #{c.city}
@@ -30,22 +35,22 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
             #{c.firstname}
          </h:column>
          <h:column>
-            <f:facet name="header">surname</f:facet>
-            #{c.surname}
+            <f:facet name="header">bookname</f:facet>
+            #{c.bookname}
          </h:column> 
               <h:column>
-            <f:facet name="header">phone</f:facet>
-            #{c.phone}
+            <f:facet name="header">bookauthor</f:facet>
+            #{c.bookauthor}
          </h:column>    
           <h:column>
             <f:facet name="header">Action</f:facet>
-            <h:outputLink value="Update.xhtml">Update</h:outputLink><br/>
-            <h:outputLink value="Delete.xhtml">Delete</h:outputLink>
+            <h:commandLink value="Delete" action="#{customerControl.deleteCustomer(c)}" onclick="if(!confirm('Delete this customer'))return false"></h:commandLink>
+            <br></br>
+            <h:outputLink value="Information.xhtml">Information Update</h:outputLink>
+         
          </h:column>
 		</h:dataTable>
-		<h:outputLink value="Add.xhtml">Add</h:outputLink>
+		<h:outputLink value="Register.xhtml">Register</h:outputLink>
 	</h:form>
-
-
 </h:body>
 </html>

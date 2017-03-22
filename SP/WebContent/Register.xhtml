@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Register Page</title>
+</h:head>
+<h:body>
+
+<h:form>
+<style type="text/css">
+span{padding-right:10px;width:4em;display:block;float:left;line-height:26px;}
+</style>
+
+<b>Register Page</b>
+
+<br></br><br></br>
+<span>Username:</span> <h:inputText value="#{customer.username}" style="width:140px"/><br></br>
+<br></br><br></br>
+<span>Password:</span> <h:inputText value="#{customer.password}" style="width:140px"/><br></br>
+
+<br></br><br></br>
+<h:commandButton value="Register" action="#{customerControl.addCustomer(customer)}"></h:commandButton>
+<span></span>
+<h:outputLink value="Customers.xhtml">Customers Page</h:outputLink>
+<span></span>
+<h:outputLink value="Information.xhtml">Information</h:outputLink>
+</h:form>
+</h:body>
+</html>

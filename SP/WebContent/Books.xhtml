@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Books Page</title>
+</h:head>
+<h:body>
+
+<h:form>
+<style type="text/css">
+span{padding-right:10px;width:4em;display:block;float:left;line-height:26px;}
+</style>
+
+<b>Books Page</b>
+
+<br></br><br></br>
+<span>Book Name:</span> <h:inputText value="#{customer.bookname}" style="width:140px"/><br></br>
+<br></br><br></br>
+<span>Book Author:</span> <h:inputText value="#{customer.bookauthor}" style="width:140px"/><br></br>
+<br></br><br></br>
+
+<h:commandButton value="add" action="#{customerControl.addBook(c)}"></h:commandButton>
+<span></span>
+<h:outputLink value="Customers.xhtml">Customers Page</h:outputLink>
+</h:form>
+</h:body>
+</html>

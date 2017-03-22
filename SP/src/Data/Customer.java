@@ -1,25 +1,46 @@
-package Data;
+	package Data;
 
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Customer {
+	private String Username;
+	private String Password;
 	private String city;
+
+
 	private String firstname;
-	private String surname;
-	private int phone;
+	private String bookname;
+	private String bookauthor;
+	
 	public Customer() {
-		
+		super();
 	}
 
-	public Customer(String city, String firstname, String surname, int phone) {
+	public Customer(String Username,String Password,String city, String firstname, String bookname, String  bookauthor) {
 		super();
+		this.Password=Password;
+		this.Username=Username;
 		this.city = city;
 		this.firstname = firstname;
-		this.surname = surname;
-		this.phone = phone;
+		this.bookname = bookname;
+		this.bookauthor = bookauthor;
 	}
 
+	public String getUsername() {
+		return Username;
+	}
+
+	public void setUsername(String username) {
+		Username = username;
+	}
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
 	public String getCity() {
 		return city;
 	}
@@ -36,19 +57,21 @@ public class Customer {
 		this.firstname = firstname;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getBookname() {
+		return bookname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
 	}
 
-	public int getPhone() {
-		return phone;
+	public String getBookauthor() {
+		return bookauthor;
 	}
 
-	public void setPhone(int phone) {
-		this.phone = phone;
+	public void setBookauthor(String bookauthor) {
+		this.bookauthor = bookauthor;
 	}
+
+	
 	}
