@@ -12,6 +12,7 @@ public class Customer {
 	private String firstname;
 	private String bookname;
 	private String bookauthor;
+	 boolean editable;
 	
 	public Customer() {
 		super();
@@ -32,7 +33,7 @@ public class Customer {
 	}
 
 	public void setUsername(String username) {
-		Username = username;
+		this.Username = username;
 	}
 	public String getPassword() {
 		return Password;
@@ -71,6 +72,15 @@ public class Customer {
 
 	public void setBookauthor(String bookauthor) {
 		this.bookauthor = bookauthor;
+	}
+
+	public boolean isEditable() {
+		return editable;
+	}
+	
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+		
 	}
 
 	

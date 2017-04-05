@@ -1,13 +1,8 @@
 package Data;
 
 import java.util.ArrayList;
-import java.util.Map;
-import java.sql.SQLException;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 @ManagedBean
 @SessionScoped
 public class CustomerControl {
@@ -41,18 +36,24 @@ public class CustomerControl {
 					
 		}
 	}
-//	public void addBook(Customer c) throws Exception{
-//		try {
-//			DAO.addBook(c);	
-//			System.out.println("Add OK");
-//		} catch (Exception e) {
-//					
-//		}
-//	}
+	public void checkCustomer(Customer c) throws Exception{
+		try {
+			DAO.checkCustomer(c);	
+			System.out.println("Login OK");
+		} catch (Exception e) {
+					
+		}
+	}
+	public String editAction(Customer customer) {
+
+		customer.setEditable(true);
+		return null;
+	}
 	
-	public void updateCustomer(Customer customer){
+	public void updateCustomer(Customer c){
 		try{
-			DAO.updateCustomer(customer);
+			DAO.updateCustomer(c);
+			c.setEditable(false);
 			System.out.println("Update OK");
 		}catch (Exception e) {
 			
@@ -60,12 +61,12 @@ public class CustomerControl {
 		}
 		
 	}
-	public void deleteCustomer(Customer customer) {
+	public void deleteCustomer(Customer c) {
 //		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 //		Map<String, Object> requestMap = externalContext.getRequestMap();
 //		requestMap.put("customer", customer);
 		try{
-			DAO.deleteCustomer(customer);
+			DAO.deleteCustomer(c);
 			System.out.println("Delete OK");
 //			FacesContext.getCurrentInstance().getExternalContext().redirect("Customers.xhtml");
 		}catch (Exception e) {

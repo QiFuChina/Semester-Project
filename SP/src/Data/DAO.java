@@ -22,9 +22,18 @@ public class DAO {
 		PreparedStatement myStmt = conn.prepareStatement("INSERT INTO customer (Username,Password) values(?,?)");
 		myStmt.setString(1, c.getUsername());
 		myStmt.setString(2, c.getPassword());
-		
+		System.out.println(myStmt);
 		myStmt.executeUpdate();
 	}
+	public void checkCustomer(Customer c) throws SQLException {
+		Connection conn =mysqlDS.getConnection();
+		PreparedStatement myStmt = conn.prepareStatement("SELECT Username,Password FROM customer WHERE Username=? and Password=?");
+		myStmt.setString(1, c.getUsername());
+		myStmt.setString(2, c.getPassword());
+		System.out.println(myStmt);
+		myStmt.executeUpdate();
+	}
+	
 //	public void addBook(Customer c) throws SQLException {
 //		Connection conn =mysqlDS.getConnection();
 //		PreparedStatement myStmt = conn.prepareStatement("INSERT INTO customer (bookname,bookauthor) values(?,?)");
@@ -36,13 +45,14 @@ public class DAO {
 	public void updateCustomer(Customer c) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStmt = conn.prepareStatement("UPDATE customer SET city='" + c.getCity()
-				+ "', firstname='" + c.getFirstname() + "',bookname='" + c.getBookname() + "',bookauthor='"+c.getBookauthor()+"'");
+		PreparedStatement myStmt = conn.prepareStatement("UPDATE customer SET city=?,firstname=?,bookname=?,bookauthor=? WHERE Username=?");
 
 		myStmt.setString(1, c.getCity());
 		myStmt.setString(2, c.getFirstname());
 		myStmt.setString(3, c.getBookname());
 		myStmt.setString(4, c.getBookauthor());
+		myStmt.setString(5, c.getUsername());
+		System.out.println(myStmt);
 		myStmt.executeUpdate();
 	}
 	public void deleteCustomer(Customer c) throws SQLException {
