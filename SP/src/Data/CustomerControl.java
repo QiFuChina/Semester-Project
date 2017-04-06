@@ -44,16 +44,28 @@ public class CustomerControl {
 					
 		}
 	}
-	public String editAction(Customer customer) {
+	public String editAction(Customer c) {
 
-		customer.setEditable(true);
+		c.setEditable(true);
 		return null;
 	}
 	
-	public void updateCustomer(Customer c){
+//	public String saveAction() {
+//		for (Customer c : customer){
+//		
+//		
+//			c.setEditable(false);
+//		}
+//		return null;
+//
+//	}
+	public void updateCustomer(Customer c)throws Exception{
+		
+		
 		try{
-			DAO.updateCustomer(c);
 			c.setEditable(false);
+			DAO.updateCustomer(c);
+			
 			System.out.println("Update OK");
 		}catch (Exception e) {
 			
@@ -61,7 +73,7 @@ public class CustomerControl {
 		}
 		
 	}
-	public void deleteCustomer(Customer c) {
+	public void deleteCustomer(Customer c) throws Exception{
 //		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 //		Map<String, Object> requestMap = externalContext.getRequestMap();
 //		requestMap.put("customer", customer);
