@@ -35,13 +35,14 @@ public class CustomerControl {
 		customer = DAO.getCustomer();
 		System.out.println(customer);
 	}
-	public void login(Customer c) throws Exception{
+	public String login(Customer c) throws Exception{
 		try {
 			DAO.login(c);	
 			//System.out.println("Register OK");
 		} catch (Exception e) {
 					
 		}
+		return "Customers";
 	}
 	public String addCustomer(Customer c) throws Exception{
 		try {
@@ -56,21 +57,21 @@ public class CustomerControl {
 		return "Information.xhtml";
 	}
 
-//	public String editAction(Customer c) {
-//
-//		c.setEditable(true);
-//		return null;
-//	}
-//	
-//	public String saveAction() {
-//		for (Customer c : customer){
-//		
-//		
-//			c.setEditable(false);
-//		}
-//		return null;
-//
+	public String editAction(Customer c) {
+
+		c.setEditable(true);
+		return null;
+	}
 	
+	public String saveAction() {
+		for (Customer c : customer){
+		
+		
+			c.setEditable(false);
+		}
+		return null;
+
+	}
    // <h:commandButton value="update" action="#{customerControl.updateCustomer(c)}" />
 //	}
 	
@@ -78,7 +79,7 @@ public class CustomerControl {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, Object> requestMap = externalContext.getRequestMap();
 		requestMap.put("customer",customer);
-		return "Information.xhtml";
+		return "Information";
 	}
 	public String updateCustomer(Customer c)throws Exception{
 		

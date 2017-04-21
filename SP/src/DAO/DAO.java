@@ -42,10 +42,13 @@ public class DAO {
 //		System.out.println(myStmt);
 //		myStmt.executeUpdate();
 		if(rs.next())
-		{System.out.println("Login OK");}
+		{System.out.println("Login OK");
+		
+		}
 		else{
 			System.out.println("Incorrect username or password");
 		}
+		
 	}
 	
 //	public static boolean login(String Username, String Password){
