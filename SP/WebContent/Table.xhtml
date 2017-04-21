@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+    <f:metadata>
+		<f:event listener="#{customerControl.loadCustomer()}" type="preRenderView" />
+	</f:metadata>
+    	<h:outputStylesheet library="css" name="table-style.css"  />
+    </h:head>
+    <h:body>
+    	<h:form>
+    		<style type="text/css">
+ .customerControl-table  { background:#66B3FF; }
+ .customerControl-table-header  { background:#66B3FF; }
+ .customerControl-table-odd-row { background:#C4E1FF; }
+ .customerControl-table-even-row { background:#ECF5FF; }
+</style>
+    	   <h:dataTable value="#{customerControl.customer}" var="c"
+    		styleClass="customerControl-table"
+    		headerClass="customerControl-table-header"
+    		rowClasses="customerControl-table-odd-row,customerControl-table-even-row"
+    	   >
+
+    	     <h:column>
+
+                <f:facet name="header">Username</f:facet>
+
+    		<h:inputText value="#{c.username}" size="10" rendered="#{customer.editable}" />
+
+    		<h:outputText value="#{c.username}" rendered="#{not customer.editable}" />
+
+    	     </h:column>
+
+    	     <h:column>
+
+    		<f:facet name="header">city</f:facet>
+
+    		<h:inputText value="#{c.city}" size="20" rendered="#{customer.editable}" />
+
+    		<h:outputText value="#{c.city}" rendered="#{not customer.editable}" />
+
+    	     </h:column>
+
+    	     <h:column>
+
+    		<f:facet name="header">firstname</f:facet>
+
+    		<h:inputText value="#{c.firstname}" size="10" rendered="#{customer.editable}" />
+
+    		<h:outputText value="#{c.firstname}" rendered="#{not customer.editable}" />
+
+    	     </h:column>
+
+    	     <h:column>
+
+    		<f:facet name="header">bookname</f:facet>
+
+    		<h:inputText value="#{c.bookname}" size="5" rendered="#{customer.editable}" />
+
+    		<h:outputText value="#{c.bookname}" rendered="#{not customer.editable}" />
+
+    	    </h:column>
+             
+            <h:column>
+            <f:facet name="header">bookauthor</f:facet>
+           <h:inputText value="#{c.bookauthor}" size="5" rendered="#{customer.editable}" />
+
+    		<h:outputText value="#{c.bookauthor}" rendered="#{not customer.editable}" />
+
+            </h:column>    
+    	     <h:column>
+
+    		<f:facet name="header">Action</f:facet>
+            <h:commandLink value="Delete" action="#{customerControl.deleteCustomer(c)}" onclick="if(!confirm('Delete this customer'))return false"></h:commandLink>
+            <br></br>
+    		<h:commandLink value="Edit" action="#{customerControl.editAction(customer)}"  rendered="#{not customer.editable}" />
+    		<br></br>
+            <h:commandLink value="update" action="#{customerControl.updateCustomer(c)}"  />
+
+    	    </h:column>
+
+    	  </h:dataTable>
+
+      </h:form>
+    </h:body>
+</html>

@@ -8,33 +8,35 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <title>Information Page</title>
 
 </h:head>
-<f:metadata>
-		<f:event listener="#{customerControl.loadCustomer()}"
-			type="preRenderView" />
-	</f:metadata>
-<h:body>
 
+<body background="http://www.websbook.com/sc/upimg/allimg/090302/057_1600_websbook_com.jpg" >
+<b>Update Page</b>
 <h:form>
 
 
 <b>Information Page</b>
+<style type="text/css">
+span{padding-right:10px;width:4em;display:block;float:left;line-height:26px;}
+</style>
 
+<br/><br/>
+<span>City:</span> <h:inputText value="#{customer.city}"  style="width:140px"/>
+<br/><br/>
+<span>Firstname:</span> <h:inputText value="#{customer.firstname}" style="width:140px"/>
+<br/><br/>
+<span>Book Name:</span> <h:inputText value="#{customer.bookname}" style="width:140px"/>
+<br/><br/><br/>
+<span>Book Author:</span> <h:inputText value="#{customer.bookauthor}" style="width:140px"/>
+<br/><br/><br/>
+<span>Confirm Username:</span> <h:inputText value="#{customer.username}" style="width:140px"  readonly="readonly"/>
+<br/><br/><br/>
 
-<br></br><br></br>
-<span>City:</span> <h:inputText value="#{customer.city}"  style="width:140px"/><br></br>
-<br></br><br></br>
-<span>Firstname:</span> <h:inputText value="#{customer.firstname}" style="width:140px"/><br></br>
-<br></br><br></br>
-<span>Book Name:</span> <h:inputText value="#{customer.bookname}" style="width:140px"/><br></br>
-<br></br><br></br>
-<span>Book Author:</span> <h:inputText value="#{customer.bookauthor}" style="width:140px"/><br></br>
-<br></br><br></br>
-<span>Confirm Username:</span> <h:inputText value="#{customer.username}" style="width:140px"  readonly="readonly"/><br></br>
-<br></br><br></br>
 <h:commandButton value="update" action="#{customerControl.updateCustomer(customer)}"></h:commandButton>
-<span></span>
+
 <h:outputLink value="Customers.xhtml">Customers Page</h:outputLink>
 
+<h:outputLink value="Table.xhtml">Table Page</h:outputLink>
+
 </h:form>
-</h:body>
+</body>
 </html>

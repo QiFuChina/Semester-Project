@@ -10,7 +10,8 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 			type="preRenderView" />
 	</f:metadata>
 </h:head>
-<h:body>
+<body background="http://www.websbook.com/sc/upimg/allimg/090302/057_1600_websbook_com.jpg" >
+<b>Customer Page</b>
  <h:form>
 <br></br>
 	<style type="text/css">
@@ -25,7 +26,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
             <f:facet name="header">Username</f:facet>    				
             #{c.username}
          </h:column>
-      
+     
 			<h:column>    				
             <f:facet name="header">city</f:facet>    				
             #{c.city}
@@ -50,7 +51,7 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
          
          </h:column>
 		</h:dataTable>
-		<h:outputLink value="User.xhtml">User</h:outputLink>
+		<h:outputLink value="Login.xhtml">Login</h:outputLink>
 	</h:form>
-</h:body>
+</body>
 </html>

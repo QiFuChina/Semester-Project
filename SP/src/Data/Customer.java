@@ -1,8 +1,16 @@
 	package Data;
-
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import DAO.DAO;
+import Data.SessionUtils;
+
 
 @ManagedBean
+@SessionScoped
 public class Customer {
 	private String Username;
 	private String Password;
@@ -82,6 +90,27 @@ public class Customer {
 		this.editable = editable;
 		
 	}
-
+//	public void loginCustomer(Customer c) {
+//		boolean login=DAO.login(Username,Password);
+//		if (login)
+//		{HttpSession session = SessionUtils.getSession();
+//		session.setAttribute("Username", Username);
+//	//	return "Username";			
+//		}else{
+//			FacesContext.getCurrentInstance().addMessage(
+//					null,
+//					new FacesMessage(FacesMessage.SEVERITY_WARN,
+//							"Incorrect Username and Passowrd",
+//							"Please enter correct username and Password"));
+//		//	return "login";
+//		}
+//		public String logoutCustomer() {
+//			HttpSession session = SessionUtils.getSession();
+//			session.invalidate();
+//			return "login";
+//}
+//		}
 	
 	}
+	
+	
